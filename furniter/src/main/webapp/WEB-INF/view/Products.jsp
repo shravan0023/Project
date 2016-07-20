@@ -1,11 +1,10 @@
-<%@ page session="false"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Products Page</title>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">   
@@ -18,7 +17,7 @@ $(document).ready(function(){
     $('#myTable').dataTable();
 });
 </script>
- <style>
+  <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 70%;
@@ -35,55 +34,51 @@ $(document).ready(function(){
   </div>
     </div>
     <ul class="nav navbar-nav navbar-right">
-						<li><a href="Products">Product</a></li>
-						<li><a href="index">Home</a></li>
-						<li><a href="Register">Register</a></li>
-					  <li><a href="addProduct">AddProduct</a></li>
-					</ul>
-		</div>
+                    
+            <li><a href="addProduct">AddProduct</a></li>
+            <li><a href="Products">Products</a></li>
+            <li><a href="index">Home</a></li>
+           
+          
+      </ul>
+    </div>
   </div>
 </nav>
 </div>
-<div class="container">
 
-	<br />
 
-	<spring:url value="/addProduct" var="userActionUrl" />
-
-	<form:form class="form-horizontal" method="get" modelAttribute="product" action="${userActionUrl}">
-<c:if test="${!empty product.name}">
-     <form:label path="id"><spring:message text="ID"/></form:label>
-      <form:input path="id" readonly="true" size="8"  disabled="true" /><br/>
-            <!-- <form:hidden path="id" /> -->
-    </c:if>
-	<!-- 	<form:hidden path="id" />  -->
-
-		<spring:bind path="name">
-		  	<label class="col-sm-2 control-label">Product Name:</label>
-			<form:input path="name" type="text" class="form-control" id="name" placeholder="Product Name" />
-		</spring:bind>
-<br/>
-		<spring:bind path="category">
-			<label class="col-sm-2 control-label">Category</label>
-			<form:input path="category" class="form-control" id="category" placeholder="Category" />
-		</spring:bind>
-<br/>
-		<spring:bind path="price">
-			<label class="col-sm-2 control-label">Price</label>
-			<form:input path="price" class="form-control" id="price" placeholder="price" />
-		</spring:bind>
-
-		
-		<td colspan="2">
-            <c:if test="${!empty product.name}">
-                <input type="submit" value="<spring:message text="Edit Product"/>" />
-            </c:if>
-            <c:if test="${empty product.name}">
-                <input type="submit" value="<spring:message text="Add Product"/>" />
-            </c:if>
-        </td>
-      </form:form>
-   </div>
+<div class="table-responsive">
+<table id="myTable" bgcolor="cyan">  
+        <thead>  
+          <tr>  
+            <th>ID</th>  
+            <th>ProductName</th>  
+            <th>Category</th>  
+            <th>Price</th>  
+            <th>Update Record</th>
+            <th>Delete Record</th>
+            <th>Details Record</th>
+          </tr>  
+        </thead>  
+        <tbody>  
+        <tr>
+         <c:forEach items="${listProduct}" var="p">
+            <tr>
+                <td>${p.id}</td>
+                <td>${p.name}</td>
+                <td>${p.category}</td>
+				<td>${p.price}</td>
+				<td><a href="edit/${p.id}" class="btn btn-primary">EDIT</a></td> 
+				
+				<td><a href="delete/${p.id}" class="btn btn-primary">Delete</a></td>
+				<td><a href="details/${p.id}" class="btn btn-primary">Details</a></td>
+            </tr>
+        </c:forEach>
+         
+        
+      </table> 
+      </div>
+    </div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-footer">

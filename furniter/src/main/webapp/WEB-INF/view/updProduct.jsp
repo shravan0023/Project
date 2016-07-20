@@ -23,22 +23,19 @@ $(document).ready(function(){
   .carousel-inner > .item > a > img {
       width: 70%;
       margin: auto;
-  }
 
   </style>
 </head>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div class="Header">
-  <img src="C:\Users\UdayShravan\Project\furniter\src\main\webapp\resources\Images\mainlogo.jpg" class="img-rounded" alt="Main Logo" width="50" height="50">
-  </div>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-						<li><a href="Products">Product</a></li>
+<body bgcolor="silver">
+<div class="header">
+  <nav class="navbar navbar-default">
+  	<div class="container-fluid">
+        <div align="right" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="color:#0000FF;background:#EEEEEE;">
+    	     <img src="C:\Users\user\Documents\Presentation1\logo.png" align=left> 
+      				<ul class="nav navbar-nav navbar-right">
+						<li><a href="product">Product</a></li>
 						<li><a href="index">Home</a></li>
 						<li><a href="Register">Register</a></li>
-					  <li><a href="addProduct">AddProduct</a></li>
 					</ul>
 		</div>
   </div>
@@ -48,15 +45,9 @@ $(document).ready(function(){
 
 	<br />
 
-	<spring:url value="/addProduct" var="userActionUrl" />
+	<spring:url value="/UpdProductUpdProduct" var="userActionUrl" />
 
 	<form:form class="form-horizontal" method="get" modelAttribute="product" action="${userActionUrl}">
-<c:if test="${!empty product.name}">
-     <form:label path="id"><spring:message text="ID"/></form:label>
-      <form:input path="id" readonly="true" size="8"  disabled="true" /><br/>
-            <!-- <form:hidden path="id" /> -->
-    </c:if>
-	<!-- 	<form:hidden path="id" />  -->
 
 		<spring:bind path="name">
 		  	<label class="col-sm-2 control-label">Product Name:</label>
@@ -75,33 +66,18 @@ $(document).ready(function(){
 
 		
 		<td colspan="2">
-            <c:if test="${!empty product.name}">
+            <c:if test="${empty product.name}">
                 <input type="submit" value="<spring:message text="Edit Product"/>" />
             </c:if>
-            <c:if test="${empty product.name}">
-                <input type="submit" value="<spring:message text="Add Product"/>" />
-            </c:if>
+           
         </td>
       </form:form>
-   </div>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-footer">
-      
-    </div>
-    <ul class="nav navbar-nav navbar-left">
-    <li><a href="#"><span class="aboutus"></span> About Us</a></li>
-      <li><a href="#"><span class="contactus"></span> Contact Us</a></li>
-     
-    </ul>
+<div align="left" style="color:#0000FF;background:pink;">
+<font size=3><a href="">About Us</a><a href="">Contact</a></font>
+   <img src="C:\Users\user\Documents\Presentation1\fb.png" width=25 height=25 align=right>
+  <img src="C:\Users\user\Documents\Presentation1\twitter.png" width=25 height=25 align=right>
+  <img src="C:\Users\user\Documents\Presentation1\g+.png" width=25 height=25 align=right>
+
   </div>
-  <div class="footer">
-  <ul class="nav navbar-nav navbar-right">
-<li><a href="#"><i class="fa fa-facebook-official" style="font-size:48px;color:#3B5998"></i></a></li>
-<li><a href="#"><i class="fa fa-twitter-square" style="font-size:48px;color: #55acee"></i></a></li>
-<li><a href="#"><i class="fa fa-google-plus-square" style="font-size:48px;color:#dd4b39"></i></a></li>     
-  </ul>
-  </div>
-</nav>
 </body>
 </html>

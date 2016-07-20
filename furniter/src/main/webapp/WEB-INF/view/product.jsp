@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- <style>  <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
  
@@ -30,45 +30,39 @@
     </div>
     </nav>
     <div class="table-responsive">
-    
-  <table id="product" class="table table-striped table-hover" cellspacing="0" width="100%">
+  <table id="products" class="table table-striped table-hover" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th>ID</th>
+        <th>Product name</th>
         <th>Category</th>
          <th>Price</th>
-        <th>Product name</th>
-        
       </tr>
       </thead>
       <tbody>
-              <c:if test="${!empty plist}">  
-          
-            <c:forEach var="product" items="${listProduct}">
-                <tr>
-                    <td>${product.id}</td>
-                      <td>${product.category}</td>
-                    <td>${product.price}</td>
-                    <td>${list.productname}</td>
-                    
-              
-                </tr>
-            </c:forEach>
+                
+          <tr>
+           <c:forEach var="p" items="${products}">
+                <td>${p.ID}</td>
+                <td>${p.productname}</td>
+                <td>${p.category}</td>
+                <td>${p.price}</td>
+               </c:forEach>
+            </tr>
             
-            </c:if>
+            
            
         
     
             </tbody>
     
     </table>
-    
     <script>
 $(document).ready(function(){
-    $('#product').dataTable();
+    $('#products').dataTable();
 });
 </script>
-<a href="addproduct" class="btn btn-info" role="button">Add</a>
+<a href="addproduct" class="btn btn-info" role="button">Add Product</a>
 </div>
     
     <div class="Footer">

@@ -1,60 +1,56 @@
 package dao;
-
+import model.Product;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dao.productdaoimpl;
-import model.productVO;
-
-
  
 
  
 @Service
-public class productservice {
+public class productServices {
      
 	@Autowired
-    private productdaoimpl productDAO;
+    private productDAOImpl productDAO;
  
-    public void setPersonDAO(productdaoimpl productDAO) {
+    public void setPersonDAO(productDAOImpl productDAO) {
         this.productDAO = productDAO;
     }
  
    
-   
-   
-  @Transactional
-    public void addProduct(productVO p) {
+    @Transactional
+    public void addProduct(Product p) {
         this.productDAO.addProduct(p);
     }
  
   
     @Transactional
-    public void updateProduct(productVO p) {
+    public void updateProduct(Product p) {
         this.productDAO.updateProduct(p);
     }
  
   
     @Transactional
-    public List<productVO> listProduct() {
+    public List<Product> listProduct() {
         return this.productDAO.listproduct();
     }
  
   
     @Transactional
-    public productVO getProductById(int ID) {
-        return this.productDAO.getProductById(ID);
+    public Product getProductById(int id) {
+        return this.productDAO.getProductById(id);
     }
  
  
     @Transactional
-    public void removeProduct(int ID) 
+    public void removeProduct(int id) 
     {
-        this.productDAO.removeProduct(ID);
+        this.productDAO.removeProduct(id);
     }
-    
  
 }
+
+
+

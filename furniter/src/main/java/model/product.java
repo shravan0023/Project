@@ -1,58 +1,57 @@
 package model;
-
-
-import java.io.Serializable;
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
- 
-@Entity
 @Table(name="PRODUCT")
-public class product implements Serializable 
-{
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    public int id;
-    
-    public String name;
-   
-    public String Category;
-   
-    public String Price;
- 
-    //Setters and Getters
-   
-    public int getid() {
+@Entity
+
+public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int id;
+	public String name;
+	public int price;
+	public String category;
+
+	public Product()
+	{
+		
+	}
+
+	public int getId() {
 		return id;
 	}
-	public void setID(int iD) {
-		id = iD;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getname() {
+
+	public String getName() {
 		return name;
 	}
-	public void setname(String Name) {
-		name = Name;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	public String getCategory() {
-		return Category;
+		return category;
 	}
+
 	public void setCategory(String category) {
-		Category = category;
-	}
-	public String getPrice() {
-		return Price;
-	}
-	public void setPrice(String price) {
-		Price = price;
+		this.category = category;
 	}
 	
 	
-    
 }

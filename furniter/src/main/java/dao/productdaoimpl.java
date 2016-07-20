@@ -7,16 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import model.product;
-
+import model.Product;
 
 
  
 @Repository
-public class productdaoimpl  {
+public class productDAOImpl  {
      
-    private static final Logger logger = LoggerFactory.getLogger(productdaoimpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(productDAOImpl.class);
  
     @Autowired
     private SessionFactory sessionFactory;
@@ -26,7 +24,7 @@ public class productdaoimpl  {
     }
  
   
-    public void addProduct(product p)
+    public void addProduct(Product p)
     {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(p);
@@ -34,7 +32,7 @@ public class productdaoimpl  {
     }
  
   
-    public void updateProduct(product p) {
+    public void updateProduct(Product p) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(p);
         logger.info("Product updated successfully, Product Details="+p);
@@ -42,10 +40,10 @@ public class productdaoimpl  {
  
     @SuppressWarnings("unchecked")
    
-    public List<product> listproduct() {
+    public List<Product> listproduct() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<product> productList = session.createQuery("from Product").list();
-        for(product p : productList)
+        List<Product> productList = session.createQuery("from Product").list();
+        for(Product p : productList)
         {
             logger.info("Product List::"+p);
         }
@@ -53,17 +51,17 @@ public class productdaoimpl  {
     }
  
     
-    public product getProductById(int ID) {
+    public Product getProductById(int id) {
         Session session = this.sessionFactory.getCurrentSession();      
-        product p = (product) session.load(product.class, new Integer(ID));
+        Product p = (Product) session.load(Product.class, new Integer(id));
         logger.info("Product loaded successfully, Person details="+p);
         return p;
     }
  
 
-    public void removeProduct(int iD) {
+    public void removeProduct(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        product p = (product) session.load(product.class, new Integer(iD));
+        Product p = (Product) session.load(Product.class, new Integer(id));
         if(null != p){
             session.delete(p);
         }
@@ -71,7 +69,3 @@ public class productdaoimpl  {
     }
  
 }
-
-
-		
-	
