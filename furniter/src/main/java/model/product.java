@@ -13,6 +13,16 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int id;
 	public String name;
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public int price;
 	public String category;
 
@@ -29,14 +39,7 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
+	
 	public int getPrice() {
 		return price;
 	}

@@ -37,7 +37,7 @@ $(document).ready(function(){
     <ul class="nav navbar-nav navbar-right">
 						<li><a href="Products">Product</a></li>
 						<li><a href="index">Home</a></li>
-						<li><a href="Register">Register</a></li>
+						
 					  <li><a href="addProduct">AddProduct</a></li>
 					</ul>
 		</div>
@@ -74,14 +74,14 @@ $(document).ready(function(){
 		</spring:bind>
 
 		
-		<td colspan="2">
-            <c:if test="${!empty product.name}">
-                <input type="submit" value="<spring:message text="Edit Product"/>" />
-            </c:if>
+		
             <c:if test="${empty product.name}">
                 <input type="submit" value="<spring:message text="Add Product"/>" />
             </c:if>
         </td>
+        <c:if test="${empty product.name}">
+                <input type="submit" value="<spring:message text="Edit Product"/>" />
+            </c:if>
       </form:form>
    </div>
 <nav class="navbar navbar-inverse">

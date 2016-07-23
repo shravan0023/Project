@@ -1,4 +1,8 @@
-C:\Users\UdayShravan\Project\furniter\src\main\java\dao\productdaoimpl.java
-C:\Users\UdayShravan\Project\furniter\src\main\java\controllers\maincontroller.java
-C:\Users\UdayShravan\Project\furniter\src\main\java\model\productservice.java
-C:\Users\UdayShravan\Project\furniter\src\main\java\model\productVO.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\dao\productDAOImpl.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\dao\customerDAOImpl.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\dao\productServices.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\controllers\SignUpController.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\model\customer.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\model\Product.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\controllers\HelloController.java
+C:\Users\UdayShravan\Project\furniter\src\main\java\dao\customerServices.java

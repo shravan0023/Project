@@ -32,10 +32,10 @@ public class productDAOImpl  {
     }
  
   
-    public void updateProduct(Product p) {
+    public void editProduct(Product p) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(p);
-        logger.info("Product updated successfully, Product Details="+p);
+        logger.info("Product edited successfully, Product Details="+p);
     }
  
     @SuppressWarnings("unchecked")

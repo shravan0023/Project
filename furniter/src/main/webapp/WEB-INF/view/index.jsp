@@ -22,8 +22,20 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
     <li><a href="Products"><span class="glyphicon glyphicon-product"></span> Product</a></li>
-      <li><a href="SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+     <li class="dropdown">
+     <span class="glyphicon glyphicon-login"></span>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SignIn
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="signin">Customer</a></li>
+          <li><a href="signin">Admin</a></li>
+          
+        </ul>
+      </li>
+      
+      <li><a href="customer"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    
+     
     </ul>
   </div>
 </nav>

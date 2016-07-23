@@ -27,8 +27,8 @@ public class productServices {
  
   
     @Transactional
-    public void updateProduct(Product p) {
-        this.productDAO.updateProduct(p);
+    public void editProduct(Product p) {
+        this.productDAO.editProduct(p);
     }
  
   
