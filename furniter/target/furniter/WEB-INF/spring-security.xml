@@ -5,34 +5,36 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-4.0.xsd">
-
-	  <http auto-config="true">
+<http auto-config="true">
 
 		<intercept-url pattern="/Products/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/customerproduct/**" access="hasRole('ROLE_USER')" />
 		
-		<form-login login-page="/admin" default-target-url="/Products" login-processing-url="/admin_login" authentication-failure-url="/loginError?error" always-use-default-target="false"/>
-
-
+		<form-login login-page="/signin" default-target-url="/Products" login-processing-url="/perform_login" authentication-failure-url="/loginError?error" always-use-default-target="false"/>
+		<!-- <form-login login-page="/signin" default-target-url="/customerproduct" login-processing-url="/perform_login" authentication-failure-url="/loginError?error" always-use-default-target="false"/> -->
+</http>
 		
+	<!-- <form-login  
+		   login-page="/signin" 
+		    default-target-url="/productTable" 
+			authentication-failure-url="/index" 
+			 username-parameter="sa"
+			password-parameter=""/>   -->
+	<!-- <logout logout-success-url="/login?logout"  />   -->
 		<!-- enable csrf protection -->
-		<!-- <csrf/> -->
-	</http>
+	<!-- 	 <csrf/> 
+	 --> 
 
-  <authentication-manager>
-		<!-- <authentication-provider>
-		 <user-service>
-			<user name="shravan" password="2323" authorities="ROLE_ADMIN" />
-		  </user-service>
-		</authentication-provider>
-	 -->
+	<authentication-manager>
 	  <authentication-provider>
 	    <!-- <user-service>
 		<user name="alpha" password="pass1" authorities="ROLE_USER" />
 	    </user-service> -->
 	    <jdbc-user-service data-source-ref="dataSource"
-		  	users-by-username-query="select username,password from user where username=?"  
-		    authorities-by-username-query= "select username,role from userrole where username =?  " />
+		  	users-by-username-query="select username,password,enabled from users where username=?"  
+		    authorities-by-username-query= "select username,role from user_roles where username =?  " />
 	  </authentication-provider>
 	</authentication-manager>
      
 </beans:beans>
+                

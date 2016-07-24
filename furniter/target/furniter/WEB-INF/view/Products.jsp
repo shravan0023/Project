@@ -62,6 +62,7 @@ $(document).ready(function(){
         </thead>  
         <tbody>  
         <tr>
+       
          <c:forEach items="${listProduct}" var="p">
             <tr>
                 <td>${p.id}</td>

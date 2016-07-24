@@ -49,6 +49,9 @@ public class productServices {
     {
         this.productDAO.removeProduct(id);
     }
+
+
+	 
  
 }
 

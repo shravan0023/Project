@@ -1,8 +1,0 @@
-model\customer.class
-model\Product.class
-dao\productDAOImpl.class
-controllers\SignUpController.class
-controllers\HelloController.class
-dao\productServices.class
-dao\customerDAOImpl.class
-dao\customerServices.class

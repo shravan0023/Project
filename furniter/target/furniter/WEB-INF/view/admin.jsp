@@ -50,7 +50,7 @@
 		</c:if>
 
 		<form name='loginForm'
-		    action="<c:url value='/admin' />" method='POST'>
+		    action="<c:url value='/admin_login' />" method='POST'>
 
 		    <table>
 			<tr>

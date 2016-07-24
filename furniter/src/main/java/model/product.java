@@ -14,47 +14,32 @@ public class Product {
 	public int id;
 	public String name;
 	
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int price;
+	
 	public String category;
-
-	public Product()
-	{
-		
-	}
-
+	public int price;
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
-	public int getPrice() {
-		return price;
+	public String getName() {
+		return name;
 	}
-
-	public void setPrice(int price) {
-		this.price = price;
+	public void setName(String name) {
+		this.name = name;
 	}
-
 	public String getCategory() {
 		return category;
 	}
-
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	
 }

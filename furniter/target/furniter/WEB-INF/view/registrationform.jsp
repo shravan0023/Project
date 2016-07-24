@@ -24,6 +24,7 @@
 
 <body>
 	<h2>Customer SignUp Form</h2>
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 	<form:form method="POST" commandName="customer" action="customer/signup">
 		<form:errors path="*" cssClass="errorblock" element="div" />
@@ -42,8 +43,8 @@
 			
 			<tr>
 				<td>UserName :</td>
-				<td><form:input path="username" /></td>
-				<td><form:errors path="username" cssClass="error" /></td>
+				<td><form:input path="name" /></td>
+				<td><form:errors path="name" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td>Phone :</td>

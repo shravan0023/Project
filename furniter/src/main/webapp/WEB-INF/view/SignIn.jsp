@@ -28,7 +28,7 @@
 </div>
 
 </div>
-<img src = "C:\Users\koel.chowdhury\DT TTT\Images\logos.png" class="img-responsive" alt="No image" width="104" height="136">
+ <img src="C:\Users\UdayShravan\Project\furniter\src\main\webapp\resources\Images\mainlogo.jpg" class="img-rounded" alt="Main Logo" width="50" height="50">
 </div>
 </nav>
 

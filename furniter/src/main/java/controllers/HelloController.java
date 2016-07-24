@@ -1,6 +1,7 @@
 package controllers;
 
 import org.springframework.stereotype.Controller;
+import dao.productServices;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -13,9 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 /*import javax.validation.Valid;*/
 import javax.validation.Valid;
 
+import org.hibernate.cfg.annotations.MapBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-  /*import org.springframework.mail.SimpleMailMessage;*/
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.MailSender;
+/*import org.springframework.mail.SimpleMailMessage;*/
 /*import org.springframework.mail.javamail.JavaMailSender;*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +37,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import com.google.gson.Gson;
 
 import dao.productServices;
 import model.customer;
@@ -68,6 +74,7 @@ public class HelloController {
     {
     	return "signin";
     }
+
     @RequestMapping("registrationform")
     public String showreg()
     {
@@ -78,6 +85,12 @@ public class HelloController {
     {
     	return "index";
     }
+    @RequestMapping("productDescription")
+    public String showproductdesc()
+    {
+    	return "productDescription";
+    }
+    
     
     
     /*@RequestMapping(value="/customer" ,method = RequestMethod.POST )
@@ -202,6 +215,53 @@ public class HelloController {
 		return model;
 		}
 */
+    	
+	@RequestMapping("/customerproduct")
+	//@ResponseBody
+	public ModelAndView showcustproduct()
+	{
+		List<Product> listtojsp=new ArrayList<Product>();
+		listtojsp=productService.listProduct();
+		String json = new Gson().toJson(listtojsp);  // converting list into Google Gson object which is a string
+		System.out.println(json);
+		ModelAndView mv=new ModelAndView("customerproduct");
+		mv.addObject("myJson", json);
+		return mv;
+	}
+	 @RequestMapping("/mailing")
+	    public String showmail()
+	    {
+	    	return "mailing";
+	    }
 	
-        
+	  @Autowired
+	    private JavaMailSender mailSender;
+
+    @RequestMapping(value="/sendEmail", method = RequestMethod.POST)
+    public String doSendEmail(HttpServletRequest request) {
+        // takes input from e-mail form
+        String recipientAddress = request.getParameter("email");
+        String fname=request.getParameter("first_name");
+        String subject ="musichub :: Your Friend Recommends..." +request.getParameter("musichub alert");
+        String message = request.getParameter("comments");
+        String finalmessage="Hi "+fname+", "+" "+message+"!!! "+"Check this out!!!";
+         
+        // prints debug info
+        System.out.println("To: " + recipientAddress);
+        System.out.println("Subject: " + subject);
+        System.out.println("Message: " + finalmessage);
+         
+        // creates a simple e-mail object
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setTo(recipientAddress);
+        email.setSubject(subject);
+        email.setText(finalmessage);
+         
+        // sends the e-mail
+        mailSender.send(email);
+         
+        // forwards to the view named "Result"
+        return "redirect:/customerproduct";
+    }
+  
 }

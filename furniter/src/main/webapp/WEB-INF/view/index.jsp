@@ -21,7 +21,7 @@
   </div>
     </div>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="Products"><span class="glyphicon glyphicon-product"></span> Product</a></li>
+    <li><a href="customerproduct"><span class="glyphicon glyphicon-product"></span> Product</a></li>
      <li class="dropdown">
      <span class="glyphicon glyphicon-login"></span>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">SignIn
@@ -75,8 +75,12 @@
   <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
+    
+    	  <li><a href="mailing">Request To Friend</a></li>
   </a>
 </div>
+  <div><li><a href="mailing">Request To Friend</a></li>
+  </div>
 <div class="col-sm-4">
       <img src="C:\Users\UdayShravan\Project\furniter\src\main\webapp\resources\Images\laptop.jpeg" class="img-responsive" style="width:100%" alt="Image">
       </div>

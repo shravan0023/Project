@@ -18,7 +18,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                     http://www.springframework.org/schema/webflow-config
                     http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">   
 
-
 <mvc:annotation-driven/>
 <mvc:default-servlet-handler/>
 <context:annotation-config />
@@ -27,9 +26,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
     
              
                 <tx:annotation-driven/>
-                
-             
-               
+          
               <bean
                                 class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                                 <property name="prefix">
@@ -44,10 +41,64 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                 
                 
                          
-            
-  
+                  
+            <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
-    
+		 <!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="100000" />
+
+	</bean>
+  
+<webflow:flow-executor id="flowExecutor" />
+ 
+	<webflow:flow-registry id="flowRegistry"
+		flow-builder-services="flowBuilderServices" base-path="/WEB-INF/view/webflow">
+		<!-- here the id is mapped to invoke this flow -->
+		<webflow:flow-location id="addToCart" path="/webFlow.xml" />
+	</webflow:flow-registry>
+ 
+	<webflow:flow-builder-services id="flowBuilderServices"
+		view-factory-creator="viewFactoryCreator" />
+ 
+	<bean id="viewFactoryCreator"
+		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<property name="viewResolvers">
+			<list>
+				<ref bean="viewResolver" />
+			</list>
+		</property>
+	</bean>
+ 
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="WEB-INF/view/webflow/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+ 
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
+	</bean>
+ 
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="order" value="0" />
+	</bean>
+                 <!-- ======== Java mail Services API ======= -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="shravan.niitchandanagar@gmail.com" />
+		<property name="password" value="1177@shravan" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
               
     <!-- ================= end ================= -->
     

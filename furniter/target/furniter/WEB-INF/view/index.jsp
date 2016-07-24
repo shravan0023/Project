@@ -21,14 +21,14 @@
   </div>
     </div>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="Products"><span class="glyphicon glyphicon-product"></span> Product</a></li>
+    <li><a href="customerproduct"><span class="glyphicon glyphicon-product"></span> Product</a></li>
      <li class="dropdown">
      <span class="glyphicon glyphicon-login"></span>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">SignIn
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="SignIn">Customer</a></li>
-          <li><a href="admin">Admin</a></li>
+          <li><a href="signin">Customer</a></li>
+          <li><a href="signin">Admin</a></li>
           
         </ul>
       </li>
@@ -75,6 +75,8 @@
   <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
+    
+    	  <li><a href="mailing">Request To Friend</a></li>
   </a>
 </div>
 <div class="col-sm-4">

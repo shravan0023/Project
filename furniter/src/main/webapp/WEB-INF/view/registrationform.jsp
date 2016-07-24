@@ -24,6 +24,7 @@
 
 <body>
 	<h2>Customer SignUp Form</h2>
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 	<form:form method="POST" commandName="customer" action="customer/signup">
 		<form:errors path="*" cssClass="errorblock" element="div" />

@@ -41,9 +41,19 @@ $(document).ready(function(){
 					  <li><a href="addProduct">AddProduct</a></li>
 					</ul>
 		</div>
-  </div>
+
 </nav>
-</div>
+
+<form  method="post" action="./FileUploadSuccess?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
+       
+       <label><spring:message text="File to upload"></spring:message></label>  
+       <input type="file" name="file">   
+        <input type="submit" value="upload" >
+        <span><form:errors path="file" cssClass="error" />
+		</span>
+        
+        
+        </form>
 <div class="container">
 
 	<br />
