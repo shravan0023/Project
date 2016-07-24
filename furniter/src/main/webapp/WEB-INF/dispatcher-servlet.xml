@@ -88,8 +88,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
-		<property name="username" value="shravan.niitchandanagar@gmail.com" />
-		<property name="password" value="1177@shravan" />
+		<property name="username" value="dttbanglore@gmail.com" />
+		<property name="password" value="password@dt" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.transport.protocol">smtp</prop>
